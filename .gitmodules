@@ -1,0 +1,21 @@
+[submodule "zsh-plugins/zsh-syntax-highlighting"]
+	path = zsh-plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "vim/pack/plugins/start/nerdtree"]
+	path = vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/pack/plugins/start/syntastic"]
+	path = vim/pack/plugins/start/syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/pack/plugins/start/vim-multiple-cursors"]
+	path = vim/pack/plugins/start/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "vim/pack/plugins/start/peaksea"]
+	path = vim/pack/plugins/start/peaksea
+	url = https://github.com/vim-scripts/peaksea
+[submodule "vim/pack/plugins/start/vim-polyglot"]
+	path = vim/pack/plugins/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
