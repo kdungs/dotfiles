@@ -6,7 +6,7 @@ submodules.
 ## Installation
 
 ```zsh
-% git clone https://github.com/kdungs/dotfile ~/.dotfiles
+% git clone https://github.com/kdungs/dotfiles ~/.dotfiles
 % cd ~/.dotfiles
 % ./update.sh
 % ./setup.sh
