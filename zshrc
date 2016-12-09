@@ -19,6 +19,7 @@ setopt extendedglob
 setopt hashlistall
 setopt nomatch
 unsetopt beep
+bindkey -e
 
 # Aliases
 alias grep="grep --color=always"
