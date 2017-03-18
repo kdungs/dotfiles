@@ -13,6 +13,8 @@ export LESS=-R
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export PATH=$PATH:$HOME/.local/bin
+
 setopt autocd
 setopt correct
 setopt extendedglob
