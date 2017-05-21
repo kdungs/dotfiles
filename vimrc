@@ -3,14 +3,15 @@
 " Kevin Dungs <kevin@dun.gs>
 " 2016-10-22
 
-filetype plugin on
 set enc=utf-8
+filetype indent on
 
 " Defaults
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamed
 set complete-=i
+"set cursorline
 set hidden
 set hlsearch
 set ignorecase
@@ -36,7 +37,7 @@ set wrap
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme peaksea
+colorscheme nord
 
 " Bindings
 let mapleader=","
