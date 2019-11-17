@@ -4,10 +4,14 @@ export LESS=-R
 export LC_ALL=en_US.UTF-8
 export LC_LANG=en_US.UTF-8
 export PATH=$PATH:$HOME/.local/bin
+
 ## GO
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+## TeX
+export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
 
 # Aliases
 alias grep="grep --color=always"
