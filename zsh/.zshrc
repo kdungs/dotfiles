@@ -106,4 +106,5 @@ function +vi-git-st() {  # Show difference between local and remote
 ### Syntax highlighting
 source $HOME/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+### FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
