@@ -8,7 +8,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nf '#ECEFF4' -nb '#5E81AC' -sb '#B48EAD' -sf '#ECEFF4'"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -19,6 +19,9 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+semicolon move scratchpad
+bindsym $mod+semicolon scratchpad show
 
 bindsym $mod+v split v
 bindsym $mod+Shift+v split h
@@ -34,38 +37,38 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
-set $workspace1 1 一 yī
-set $workspace2 2 二 èr
-set $workspace3 3 三 sān
-set $workspace4 4 四 sì
-set $workspace5 5 五 wǔ
-set $workspace6 6 六 liù
-set $workspace7 7 七 qī
-set $workspace8 8 八 bā
-set $workspace9 9 九 jiǔ
-set $workspace10 10 十 shí
+set $ws1 1 一 yī
+set $ws2 2 二 èr
+set $ws3 3 三 sān
+set $ws4 4 四 sì
+set $ws5 5 五 wǔ
+set $ws6 6 六 liù
+set $ws7 7 七 qī
+set $ws8 8 八 bā
+set $ws9 9 九 jiǔ
+set $ws10 10 十 shí
 
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -82,7 +85,43 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $c_pn_0 #2E3440
+set $c_pn_1 #3B4252
+set $c_pn_2 #434C5E
+set $c_pn_3 #4C566A
+set $c_ss_0 #D8DEE9
+set $c_ss_1 #E5E9F0
+set $c_ss_2 #ECEFF4
+set $c_hf_0 #8FBCBB
+set $c_hf_1 #88C0D0
+set $c_hf_2 #81A1C1
+set $c_hf_3 #5E81AC
+set $c_ha_0 #BF616A
+set $c_ha_1 #D08770
+set $c_ha_2 #EBCB8B
+set $c_ha_3 #A3BE8C
+set $c_ha_3 #B48EAD
+
+#                       Border  BG      Text    Ind     Child border
+client.focused          $c_pn_3 $c_pn_3 $c_ss_2 $c_ha_2 $c_pn_3
+client.focused_inactive $c_pn_0 $c_pn_1 $c_ss_0 $c_hf_2 $c_pn_0
+client.unfocused        $c_pn_0 $c_pn_0 $c_ss_0 $c_hf_2 $c_pn_0
+client.urgent           $c_ha_0 $c_ha_0 $c_ss_2 $c_ha_0 $c_pn_0
+client.placeholder      $c_ss_1 $c_ss_1 $c_pn_0 $c_ss_1 $c_ss_1
+client.background               $c_pn_0
+
 bar {
   position top
   status_command i3status
+  colors {
+    background $c_pn_0
+    statusline $c_ss_0
+    separator  $c_ss_0
+
+    #                  Border  BG      Text
+    focused_workspace  $c_pn_3 $c_pn_3 $c_ss_2
+    active_workspace   $c_pn_1 $c_pn_1 $c_ss_2
+    inactive_workspace $c_pn_0 $c_pn_0 $c_ss_0
+    urgent_workspace   $c_ha_0 $c_ha_0 $c_ss_0
+  }
 }
