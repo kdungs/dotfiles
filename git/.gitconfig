@@ -6,5 +6,15 @@
   excludesfile = ~/.gitignore
 [color]
   ui = true
+[format]
+  pretty = fuller
+[help]
+  autocorrect = true
 [push]
   default = simple
+[status]
+  short = true
+[alias]
+  adog = log --all --decorate --oneline --graph
+[includeIf "gitdir:~/P8/"]
+  path = ~/P8/.gitconfig
