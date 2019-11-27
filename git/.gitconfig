@@ -9,7 +9,7 @@
 [format]
   pretty = fuller
 [help]
-  autocorrect = true
+  autocorrect = 1
 [push]
   default = simple
 [status]
