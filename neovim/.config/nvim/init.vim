@@ -35,6 +35,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 " plug#end automatically calls `filetype plugin indent on` and `syntax enable`
 
