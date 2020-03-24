@@ -125,3 +125,8 @@ bar {
     urgent_workspace   $c_ha_0 $c_ha_0 $c_ss_0
   }
 }
+
+# Non-i3 related
+exec xmodmap -e "clear lock"
+exec xmodmap -e "keysym Caps_Lock = Escape"
+exec feh --bg-fill .wallpaper.jpg
