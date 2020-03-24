@@ -4,23 +4,47 @@ export LESS=-R
 export LC_ALL=en_US.UTF-8
 export LC_LANG=en_US.UTF-8
 export PATH=$PATH:$HOME/.local/bin
+export GPG_TTY=$(tty)
 
-## GO
+## Homebrew
+case `uname` in
+  Darwin)
+    export PATH="/usr/local/sbin":$PATH
+  ;;
+esac
+
+## Golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 ## TeX
-export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
+case `uname` in
+  Darwin)
+    export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-darwin
+  ;;
+  Linux)
+    export PATH=$PATH:/usr/local/texlive/2019/bin/x86_64-linux
+  ;;
+esac
 
 # Aliases
 alias grep="grep --color=always"
+case `uname` in
+  Darwin)
+    alias ls="ls -hG"
+  ;;
+  Linux)
+    alias ls="ls -h --color=auto --group-directories-first"
+  ;;
+esac
 alias l="ls -l"
 alias la="ls -a"
 alias ll="ls -la"
-alias ls="ls -h --color=auto --group-directories-first"
 alias tmux="tmux -2"
 alias vim="nvim"
+alias todo="git grep -nEI 'TODO\(kdungs\)' | sed 's/  */ /g'"
+alias todos="git grep -nEI 'TODO' | sed 's/  */ /g'"
 
 # Pyenv
 export PATH=$HOME/.pyenv/bin:$PATH
@@ -36,8 +60,13 @@ precmd() {
 }
 
 build_prompt() {
+  # Requires Nerd fonts
+  # https://github.com/ryanoasis/nerd-fonts
   PROMPT="${vcs_info_msg_0_}
 %{$fg[yellow]%}%m →%{$reset_color%} "
+  if [ -v PYENV_VERSION ]; then
+    PROMPT="%{$fg[blue]%} ${PYENV_VERSION}%{$reset_color%} ${PROMPT}"
+  fi
   RPROMPT="%{$fg[yellow]%}%~%{$reset_color%}"
 }
 
