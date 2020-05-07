@@ -141,3 +141,16 @@ source $HOME/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# Sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+  export QT_WAYLAND_FORCE_DPI=physical
+  export GDK_BACKEND=wayland
+  export QT_QPA_PLATFORM=wayland-egl
+  export CLUTTER_BACKEND=wayland
+  export SDL_VIDEODRIVER=wayland
+  export BEMENU_BACKEND=wayland
+  exec sway
+fi
+

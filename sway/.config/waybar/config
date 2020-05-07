@@ -1,0 +1,21 @@
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "network", "battery", "clock"],
+    "sway/window": {
+        "max-length": 100
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}"
+    },
+    "network": {
+        "format-ethernet": "",
+        "format-wifi": " {essid}"
+    }
+}
