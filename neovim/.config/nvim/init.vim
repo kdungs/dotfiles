@@ -24,8 +24,8 @@ set shiftwidth=2
 set tabstop=4
 
 " Python for neovim
-let g:python_host_prog = $HOME.'pyenv/versions/py2neovim/bin/python'
-let g:python3_host_prog = $HOME.'pyenv/versions/py3neovim/bin/python'
+let g:python_host_prog = $HOME.'/.pyenv/versions/py2neovim/bin/python'
+let g:python3_host_prog = $HOME.'/.pyenv/versions/py3neovim/bin/python'
 
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
@@ -47,6 +47,7 @@ let g:nord_italic_comments = 1
 let g:nord_underline = 1
 let g:airline_theme = 'nord'
 color nord
+highlight Comment cterm=italic
 
 " Bindings
 let mapleader=","
