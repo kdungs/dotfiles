@@ -18,3 +18,5 @@
   adog = log --all --decorate --oneline --graph
 [includeIf "gitdir:~/P8/"]
   path = ~/P8/.gitconfig
+[pull]
+  rebase = true
