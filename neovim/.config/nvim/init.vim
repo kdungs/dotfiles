@@ -30,12 +30,13 @@ let g:python3_host_prog = $HOME.'/.pyenv/versions/py3neovim/bin/python'
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " plug#end automatically calls `filetype plugin indent on` and `syntax enable`
 
