@@ -14,9 +14,11 @@ case `uname` in
 esac
 
 ## Golang
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+## Java (for Bazel)
+export JAVA_HOME=/usr/lib/jvm/default/
 
 ## TeX
 case `uname` in
@@ -45,6 +47,7 @@ alias tmux="tmux -2"
 alias vim="nvim"
 alias todo="git grep -nEI 'TODO\(kdungs\)' | sed 's/  */ /g'"
 alias todos="git grep -nEI 'TODO' | sed 's/  */ /g'"
+alias blaze="bazel"
 
 # Pyenv
 export PATH=$HOME/.pyenv/bin:$PATH
@@ -141,16 +144,3 @@ source $HOME/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-# Sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-  export QT_WAYLAND_FORCE_DPI=physical
-  export GDK_BACKEND=wayland
-  export QT_QPA_PLATFORM=wayland-egl
-  export CLUTTER_BACKEND=wayland
-  export SDL_VIDEODRIVER=wayland
-  export BEMENU_BACKEND=wayland
-  exec sway
-fi
-

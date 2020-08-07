@@ -7,28 +7,42 @@ general {
   color_bad = "#BF616A"
 }
 
-order += "disk /"
 order += "ethernet enp3s0"
+order += "wireless wlan0"
+order += "battery 0"
 order += "volume master"
 order += "tztime local"
 
 ethernet enp3s0 {
-  format_up = "%ip"
-  format_down = "down"
+  format_up = " %ip"
+  format_down = ""
+}
+
+wireless wlan0 {
+  format_up = " %essid %bitrate %ip"
+  format_down = "睊"
+}
+
+battery 0 {
+  format = "%status %percentage %remaining %consumption"
+  format_down = ""
+  status_chr = ""
+  status_bat = ""
+  status_unk = ""
+  status_full = ""
+  path = "/sys/class/power_supply/BAT%d/uevent"
+  low_threshold = 10
+  last_full_capacity = true
+}
+
+volume master {
+  format = " %volume"
+  format_muted = " (%volume)"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
 }
 
 tztime local {
   format = "%Y-%m-%d %H:%M:%S"
-}
-
-disk "/" {
-  format = "%free"
-}
-
-volume master {
-  format = "♪: %volume"
-  format_muted = "♪: muted (%volume)"
-  device = "default"
-  mixer = "Master"
-  mixer_idx = 0
 }

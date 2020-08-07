@@ -1,14 +1,44 @@
+# i3 config
+# 2020-06-26
+
+# MISSING:
+#  - natural scrolling
+#  - notifications (dunst)
+#  - clipboard
+#  - move colors to Xresources
+#  - auto-locking
+
+# Variables
 set $mod Mod4
+set $term alacritty
+set $font pango:Hack Nerd Font Regular 10
+set $wallpaper ~/.wallpaper.png
 
-font pango:monospace 10
+set $menu dmenu_run \
+  -p "▶" \
+  -b \
+  -i \
+  -fn 'Hack Nerd Font-10' \
+  -nb '#2E3440' \
+  -nf '#88C0D0' \
+  -sb '#88C0D0' \
+  -sf '#2E3440'
 
+set $lock i3lock -i ~/.wallpaper.png
+
+# Configuration
+font $font
 floating_modifier $mod
+default_border pixel 1
 
-bindsym $mod+Return exec i3-sensible-terminal
-
+# Keybindings
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
 bindsym $mod+Shift+q kill
+bindsym XF86Eject exec $lock
 
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nf '#ECEFF4' -nb '#5E81AC' -sb '#B48EAD' -sf '#ECEFF4'"
+bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+p exec ~/.local/bin/gopass-dmenu
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -37,16 +67,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
-set $ws1 1 一 yī
-set $ws2 2 二 èr
-set $ws3 3 三 sān
-set $ws4 4 四 sì
-set $ws5 5 五 wǔ
-set $ws6 6 六 liù
-set $ws7 7 七 qī
-set $ws8 8 八 bā
-set $ws9 9 九 jiǔ
-set $ws10 10 十 shí
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -85,6 +115,18 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+## Multimedia keys
+set $backlightDisplay "nv_backlight"
+set $backlightKeyboard "smc::kbd_backlight"
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=$backlightDisplay s 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=$backlightDisplay s 10%-
+bindsym XF86KbdBrightnessUp   exec --no-startup-id brightnessctl --device=$backlightKeyboard s 10%+
+bindsym XF86KbdBrightnessDown exec --no-startup-id brightnessctl --device=$backlightKeyboard s 10%-
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer sset Master 5%+
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer sset Master 5%-
+bindsym XF86AudioMute         exec --no-startup-id amixer sset Master toggle
+
+# Layout
 set $c_pn_0 #2E3440
 set $c_pn_1 #3B4252
 set $c_pn_2 #434C5E
@@ -113,6 +155,7 @@ client.background               $c_pn_0
 bar {
   position top
   status_command i3status
+  separator_symbol " "
   colors {
     background $c_pn_0
     statusline $c_ss_0
@@ -127,6 +170,6 @@ bar {
 }
 
 # Non-i3 related
-exec xmodmap -e "clear lock"
-exec xmodmap -e "keysym Caps_Lock = Escape"
-exec feh --bg-fill .wallpaper.jpg
+exec --no-startup-id xmodmap -e "clear lock"
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
+exec --no-startup-id feh --bg-fill $wallpaper
