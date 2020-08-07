@@ -5,6 +5,7 @@ set -e
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm \
   alacritty \
+  dmenu \
   firefox \
   git \
   htop \
