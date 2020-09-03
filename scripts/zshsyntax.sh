@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-ZSH_PLUGINS_DIR="~/.zsh-plugins"
+ZSH_PLUGINS_DIR="${HOME}/.zsh-plugins"
 
 set -e
 
