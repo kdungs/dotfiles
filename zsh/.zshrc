@@ -65,8 +65,12 @@ precmd() {
 build_prompt() {
   # Requires Nerd fonts
   # https://github.com/ryanoasis/nerd-fonts
+  sshp=""
+  if [ -n "${SSH_CLIENT}" ] || [ -n "${SSH_TTY}" ]; then
+    sshp="%{$fg[green]%}ﮈ%{$reset_color%} "
+  fi
   PROMPT="${vcs_info_msg_0_}
-%{$fg[yellow]%}%m →%{$reset_color%} "
+${sshp}%{$fg[yellow]%}%m →%{$reset_color%} "
   if [ -v PYENV_VERSION ]; then
     PROMPT="%{$fg[blue]%} ${PYENV_VERSION}%{$reset_color%} ${PROMPT}"
   fi
