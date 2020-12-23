@@ -23,6 +23,15 @@ set expandtab
 set shiftwidth=2
 set tabstop=4
 
+set colorcolumn=80
+
+" Coc stuff
+" TODO: sort later
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 " Python for neovim
 let g:python_host_prog = $HOME.'/.pyenv/versions/py2neovim/bin/python'
 let g:python3_host_prog = $HOME.'/.pyenv/versions/py3neovim/bin/python'
@@ -34,6 +43,7 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -67,6 +77,20 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"" Coc
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"" FZF
+let g:fzf_command_prefix='Fzf'
+
+
+"" Vim-go
+let g:go_def_mapping_enabled=0
+let g:go_info_mode='gopls'
 
 "" NERD tree
 let NERDTreeIgnore=['\~$', '^\.git', '\.swp$', '\.DS_Store$']
