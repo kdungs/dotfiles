@@ -15,7 +15,8 @@ esac
 
 ## Golang
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 ## Java (for Bazel)
 export JAVA_HOME=/usr/lib/jvm/default/
